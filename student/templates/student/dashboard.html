@@ -1,0 +1,66 @@
+{% extends 'student/base.html' %}
+{% load static %}
+{% block content %}
+<h2 class="text-center my-3 alert alert-info">CRUD Function Based View Model Form</h2>
+        {% if messages %}
+            {% for message in messages %}
+              <div  {% if message.tags %} class="text-center my-3 alert alert-{{message.tags}}  alert-dismissible fade show" role="alert" {% endif %}>
+                <strong>{{message}}</strong>
+                <button type="button" class="close" data-bs-dismiss="alert" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+            {% endfor  %}
+        {% endif %}
+<div class="row">
+<div class="col-sm-4">
+    <h4 class="alert alert-danger text-center my-3">Add Student Details </h4>
+    <form action="" method="post" novalidate>
+        {% csrf_token %}
+        {% for st in form %}
+        <div class="form-group">
+            {{st.label_tag}} {{st}} <small class="text-warning">{{st.errors|striptags}}</small>
+        </div>
+        {% endfor %}
+        <input class="btn btn-success" type="submit" value="Add">
+    </form>
+</div>
+
+<div class="col-sm-8">
+    <h4 class="alert alert-danger my-3 text-center">Student Information</h4>
+    {% if fm %}
+        <table class="table">
+            <thead>
+              <tr>
+                <th  scope="col">Id</th>
+                <th  scope="col">Name</th>
+                <th  scope="col">Email</th>
+                <th  scope="col">Phone</th>
+                <th  scope="col">Location</th>
+                <th  scope="col">Action</th>
+              </tr>
+            </thead>
+            <tbody>
+            {% for stu in fm %}
+              <tr>
+                <th scope="row">{{stu.id}}</th>
+                <td >{{stu.name}}</td>
+                <td >{{stu.email}}</td>
+                <td >{{stu.phone}}</td>
+                <td >{{stu.location}}</td>
+                <td>
+                    <a href="{% url 'update' stu.id %}" class="btn btn-warning btn-sm">Edit</a>
+                    <form action="{% url 'delete' stu.id %}" method="post" class="d-inline" >{% csrf_token %}
+                    <input  type="submit" value="Delete" class="btn btn-danger btn-sm">
+                    </form>
+                </td>
+              </tr>
+            {% endfor %}
+            </tbody>
+          </table>
+        {% else %}
+        <h4 class="text-center alert alert-warning">No Records</h4>
+        {% endif %}
+</div>
+</div>
+{% endblock content %}
