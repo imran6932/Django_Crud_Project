@@ -25,7 +25,7 @@ SECRET_KEY = '4gagc)y&=b)vien2()6fxv%7u1l7e6+k+n!@n&!qqilp7x1_+^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'imran-crud-login.herokuapp.com']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
