@@ -2,16 +2,16 @@
 {% load static %}
 {% block content %}
 <h2 class="text-center my-3 alert alert-info">CRUD Function Based View Model Form</h2>
-        {% if messages %}
-            {% for message in messages %}
-              <div  {% if message.tags %} class="text-center my-3 alert alert-{{message.tags}}  alert-dismissible fade show" role="alert" {% endif %}>
-                <strong>{{message}}</strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-            {% endfor  %}
-        {% endif %}
+{% if messages %}
+{% for message in messages %}
+  <div  {% if message.tags %} class="text-center my-3 alert alert-{{message.tags}}  alert-dismissible fade show" role="alert" {% endif %}>
+    <strong>{{message}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+{% endfor  %}
+{% endif %}
 <div class="row">
 <div class="col-sm-4">
     <h4 class="alert alert-danger text-center my-3">Add Student Details </h4>

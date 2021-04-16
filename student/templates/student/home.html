@@ -2,16 +2,17 @@
 {% load static %}
 {% block content %}
 <div>
-    {% if messages %}
-            {% for message in messages %}
-              <div  {% if message.tags %} class="text-center my-3 alert alert-{{message.tags}}  alert-dismissible fade show" role="alert" {% endif %}>
-                <strong>{{message}}</strong>
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-            {% endfor  %}
-        {% endif %}
+{% if messages %}
+{% for message in messages %}
+  <div  {% if message.tags %} class="text-center my-3 alert alert-{{message.tags}}  alert-dismissible fade show" role="alert" {% endif %}>
+    <strong>{{message}}</strong>
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+{% endfor  %}
+{% endif %}
+
     <h1 class=" text-center my-5">Welcome to CRUD Function Based View Model</h1>
 
 <p class="text-justify">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Consequatur maxime ducimus, assumenda eligendi, quae libero ut doloremque facere eum corrupti nisi. Ex error iste ut adipisci sed, repellat sunt? Ducimus tempore perferendis cumque inventore assumenda cupiditate sunt eum in vero praesentium optio, nisi officiis pariatur reprehenderit eius impedit. Cumque atque molestias accusamus aliquid? Eaque consequuntur eos illum nulla, animi deserunt minus aperiam dolor voluptate quibusdam repudiandae tempore alias fuga quos. Nobis nulla illo possimus ipsum, illum vitae quam tempore sed quod voluptatem maxime, soluta reiciendis error facilis sequi expedita commodi quae deserunt rem pariatur! Neque adipisci blanditiis cum eveniet accusamus.</p>
