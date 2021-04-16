@@ -23,9 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = '4gagc)y&=b)vien2()6fxv%7u1l7e6+k+n!@n&!qqilp7x1_+^'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'imran-crudlogin.herokuapp.com']
 
 
 # Application definition
