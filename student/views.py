@@ -3,6 +3,7 @@ from .forms import Signup_form, Login_form, Student
 from django.contrib.auth import authenticate, login, logout
 from .models import Student_user
 from django.contrib import messages
+from django.contrib.auth.models import Group
 
 
 # Create your views here.
@@ -26,8 +27,10 @@ def signup(request):
     if request.method == 'POST':
         form = Signup_form(request.POST)
         if form.is_valid():
-            form.save()
+            user = form.save()
             messages.success(request, 'Your account created successfully')
+            group = Group.objects.get(name='Normal_user')
+            user.groups.add(group)
             form = Signup_form()
     else:
         form = Signup_form()

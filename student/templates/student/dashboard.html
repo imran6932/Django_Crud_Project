@@ -29,7 +29,7 @@
 <div class="col-sm-8">
     <h4 class="alert alert-danger my-3 text-center">Student Information</h4>
     {% if fm %}
-        <table class="table">
+        <table class="table text-white">
             <thead>
               <tr>
                 <th  scope="col">Id</th>
@@ -50,9 +50,11 @@
                 <td >{{stu.location}}</td>
                 <td>
                     <a href="{% url 'update' stu.id %}" class="btn btn-warning btn-sm">Edit</a>
+                    {% if perms.student.delete_data %}
                     <form action="{% url 'delete' stu.id %}" method="post" class="d-inline" >{% csrf_token %}
                     <input  type="submit" value="Delete" class="btn btn-danger btn-sm">
                     </form>
+                    {% endif %}
                 </td>
               </tr>
             {% endfor %}
