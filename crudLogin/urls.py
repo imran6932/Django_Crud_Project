@@ -16,8 +16,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from student import views
-from django.views.url import serve
-from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,7 +27,5 @@ urlpatterns = [
     path('/<int:id>/', views.delete_data, name='delete'),
     path('update/<int:id>/', views.update_data, name='update'),
 
-    url(r'^media/(?P<path>.*)$', serve,{'document_root':settings.MEDIA_ROOT}), 
-    url(r'^static/(?P<path>.*)$', serve,{'document_root':settings.STATIC_ROOT}),
 ]
 
